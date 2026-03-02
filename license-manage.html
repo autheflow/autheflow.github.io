@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTEX License Manager | License Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/dark-theme.css">
+    <style>
+        .license-key-display {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            color: var(--brand-400);
+            background: rgba(70, 95, 255, 0.1);
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            border: 2px solid rgba(70, 95, 255, 0.3);
+            text-align: center;
+        }
+        
+        .quick-select-btn {
+            margin: 4px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            background: rgba(70, 95, 255, 0.1);
+            color: var(--brand-400);
+            border: 1px solid rgba(70, 95, 255, 0.3);
+            transition: all 0.2s ease;
+        }
+        
+        .quick-select-btn:hover {
+            background: rgba(70, 95, 255, 0.2);
+            border-color: var(--brand-500);
+            transform: translateY(-1px);
+        }
+        
+        .expired-license-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .expired-license-item:hover {
+            border-color: var(--brand-500);
+            box-shadow: 0 4px 12px rgba(70, 95, 255, 0.2);
+            transform: translateX(4px);
+        }
+        
+        .expired-license-item.selected {
+            border-color: var(--brand-500);
+            background: rgba(70, 95, 255, 0.08);
+        }
+        
+        .navbar-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .navbar-user:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-left: auto;
+        }
+        
+        .extend-warning-btn {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        
+        .extend-warning-btn:hover {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+            border-color: var(--warning);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="app-sidebar">
+            <a href="dashboard.html" class="brand-link">
+                <img src="icon.png" alt="HTEX Logo" class="brand-image">
+                <span class="brand-text">HTEX</span>
+            </a>
+            
+            <ul class="sidebar-menu">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="bi bi-speedometer2 nav-icon"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="license-manage.html" class="nav-link active">
+                        <i class="bi bi-key-fill nav-icon"></i>
+                        <span>License Management</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="software.html" class="nav-link">
+                        <i class="bi bi-box-seam nav-icon"></i>
+                        <span>Software</span>
+                    </a>
+                </li>
+                <li class="nav-item" id="usersMenuItem" style="display: none;">
+                    <a href="users.html" class="nav-link">
+                        <i class="bi bi-people-fill nav-icon"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <header class="app-header">
+            <div class="navbar-actions">
+                <div class="dropdown">
+                    <button class="navbar-user dropdown-toggle" data-bs-toggle="dropdown">
+                        <div class="user-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+                        <span id="userName" style="color: var(--text-primary); font-weight: 600;">Admin</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+                        <li><hr class="dropdown-divider" style="border-color: rgba(255,255,255,0.05);"></li>
+                        <li><a class="dropdown-item" href="#" onclick="logout()"><i class="bi bi-box-arrow-right me-2"></i>Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <div class="app-content-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3><i class="bi bi-key-fill me-3"></i>License Management</h3>
+                    </div>
+                    <div class="col-auto">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                                <li class="breadcrumb-item active">License Management</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-content">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="bi bi-plus-circle"></i>
+                                    Create New License
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <form id="createLicenseForm" onsubmit="event.preventDefault(); createLicense();">
+                                    <div class="mb-4">
+                                        <label class="form-label">License Key</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control license-key-display" id="newLicenseKey" readonly>
+                                            <button type="button" class="btn btn-primary" onclick="generateNewKey()">
+                                                <i class="bi bi-arrow-repeat me-2"></i>Random
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Software</label>
+                                        <select class="form-select" id="newSoftware" required>
+                                            <option value="">Select Software</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Expiration Period</label>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn quick-select-btn" onclick="setExpiration(1/24)">1 Hour</button>
+                                            <button type="button" class="btn quick-select-btn" onclick="setExpiration(7)">7 Days</button>
+                                            <button type="button" class="btn quick-select-btn" onclick="setExpiration(30)">1 Month</button>
+                                            <button type="button" class="btn quick-select-btn" onclick="setExpiration(60)">2 Months</button>
+                                            <button type="button" class="btn quick-select-btn" onclick="setExpiration(90)">3 Months</button>
+                                            <button type="button" class="btn quick-select-btn" onclick="setExpiration(180)">6 Months</button>
+                                            <button type="button" class="btn quick-select-btn" onclick="setExpiration(365)">12 Months</button>
+                                        </div>
+                                        <input type="date" class="form-control" id="newExpirationDate" required>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Notes (Optional)</label>
+                                        <textarea class="form-control" id="newNotes" rows="3"></textarea>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-success w-100">
+                                        <i class="bi bi-check-circle me-2"></i>Create License
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="bi bi-clock-history"></i>
+                                    Extend Expired License
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="searchExpired" 
+                                        placeholder="Search expired licenses..."
+                                        oninput="filterExpiredLicenses(this.value)"
+                                    >
+                                </div>
+                                
+                                <div id="expiredLicensesList" style="max-height: 400px; overflow-y: auto; margin-bottom: 16px;">
+                                    <div class="text-center py-4">
+                                        <div class="spinner-border" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="extendSection" style="display: none;">
+                                    <hr style="border-color: rgba(255, 255, 255, 0.1); margin: 20px 0;">
+                                    <h5 class="mb-3">
+                                        Extend: <span id="selectedLicenseKey" style="color: var(--brand-400);"></span>
+                                    </h5>
+                                    <div class="mb-3">
+                                        <label class="form-label">Extension Period</label>
+                                        <div class="mb-2">
+                                            <button type="button" class="btn extend-warning-btn quick-select-btn" onclick="setExtendDays(7)">7 Days</button>
+                                            <button type="button" class="btn extend-warning-btn quick-select-btn" onclick="setExtendDays(30)">1 Month</button>
+                                            <button type="button" class="btn extend-warning-btn quick-select-btn" onclick="setExtendDays(90)">3 Months</button>
+                                            <button type="button" class="btn extend-warning-btn quick-select-btn" onclick="setExtendDays(180)">6 Months</button>
+                                            <button type="button" class="btn extend-warning-btn quick-select-btn" onclick="setExtendDays(365)">12 Months</button>
+                                        </div>
+                                        <input type="number" class="form-control" id="extendDays" placeholder="Or enter custom days" min="1">
+                                    </div>
+                                    <button type="button" class="btn btn-warning w-100" onclick="extendLicense()">
+                                        <i class="bi bi-clock-history me-2"></i>Extend License
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        const LICENSE_API = 'api/license_keys.php';
+        const SOFTWARE_API = 'api/software.php';
+        const AUTH_API = 'api/auth.php';
+
+        let currentUser = null;
+        let expiredLicenses = [];
+        let selectedExpiredLicense = null;
+
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "timeOut": "3000"
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuth();
+            
+            document.getElementById('searchExpired').addEventListener('input', function() {
+                filterExpiredLicenses(this.value);
+            });
+        });
+
+        async function checkAuth() {
+            try {
+                const response = await fetch(`${AUTH_API}?action=check`);
+                const result = await response.json();
+                
+                if (!result.success) {
+                    window.location.href = 'login.html?session=expired';
+                    return;
+                }
+                
+                currentUser = result.data;
+                document.getElementById('userName').textContent = currentUser.full_name || currentUser.username;
+                
+                if (currentUser.role === 'admin') {
+                    document.getElementById('usersMenuItem').style.display = 'block';
+                }
+                
+                if (currentUser.role !== 'admin' && currentUser.role !== 'nhan_vien') {
+                    toastr.error('Access denied');
+                    window.location.href = 'dashboard.html';
+                    return;
+                }
+                
+                loadSoftwareList();
+                loadExpiredLicenses();
+                generateNewKey();
+                
+            } catch (error) {
+                console.error('Auth check failed:', error);
+                window.location.href = 'login.html';
+            }
+        }
+
+        async function loadSoftwareList() {
+            try {
+                const response = await fetch(`${SOFTWARE_API}?action=list`);
+                const result = await response.json();
+                
+                if (result.success) {
+                    const select = document.getElementById('newSoftware');
+                    select.innerHTML = '<option value="">Select Software</option>';
+                    result.data.forEach(software => {
+                        const option = document.createElement('option');
+                        option.value = software.name;
+                        option.textContent = software.name;
+                        select.appendChild(option);
+                    });
+                }
+            } catch (error) {
+                console.error('Failed to load software list:', error);
+            }
+        }
+
+        async function generateNewKey() {
+            try {
+                const response = await fetch(`${LICENSE_API}?action=generate`);
+                const result = await response.json();
+                
+                if (result.success) {
+                    document.getElementById('newLicenseKey').value = result.data.license_key;
+                }
+            } catch (error) {
+                console.error('Failed to generate key:', error);
+            }
+        }
+
+        function setExpiration(days) {
+            const today = new Date();
+            const expirationDate = new Date(today.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.getElementById('newExpirationDate').valueAsDate = expirationDate;
+        }
+
+        async function createLicense() {
+            const licenseKey = document.getElementById('newLicenseKey').value;
+            const software = document.getElementById('newSoftware').value;
+            const expirationDate = document.getElementById('newExpirationDate').value;
+            const notes = document.getElementById('newNotes').value;
+            
+            if (!software) {
+                toastr.error('Please select software');
+                return;
+            }
+            
+            if (!expirationDate) {
+                toastr.error('Please select expiration date');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${LICENSE_API}?action=create`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        license_key: licenseKey,
+                        software: software,
+                        expiration_date: expirationDate,
+                        notes: notes
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    toastr.success('License created successfully!');
+                    document.getElementById('createLicenseForm').reset();
+                    generateNewKey();
+                } else {
+                    toastr.error(result.error || 'Failed to create license');
+                }
+            } catch (error) {
+                console.error('Create failed:', error);
+                toastr.error('Failed to create license');
+            }
+        }
+
+        async function loadExpiredLicenses() {
+            try {
+                const response = await fetch(`${LICENSE_API}?action=expired`);
+                const result = await response.json();
+                
+                if (result.success) {
+                    expiredLicenses = result.data;
+                    displayExpiredLicenses(expiredLicenses);
+                }
+            } catch (error) {
+                console.error('Failed to load expired licenses:', error);
+            }
+        }
+
+        function displayExpiredLicenses(licenses) {
+            const container = document.getElementById('expiredLicensesList');
+            
+            if (licenses.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted">No expired licenses found</p>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            licenses.forEach(license => {
+                const item = document.createElement('div');
+                item.className = 'expired-license-item';
+                item.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong style="color: var(--text-primary);">${license.license_key}</strong>
+                            <br>
+                            <small class="text-muted">${license.software}</small>
+                        </div>
+                        <div class="text-end">
+                            <span class="badge bg-danger">Expired</span>
+                            <br>
+                            <small class="text-muted">${formatDate(license.expiration_date)}</small>
+                        </div>
+                    </div>
+                `;
+                item.onclick = () => selectExpiredLicense(license);
+                container.appendChild(item);
+            });
+        }
+
+        function filterExpiredLicenses(search) {
+            const filtered = expiredLicenses.filter(license => 
+                license.license_key.toLowerCase().includes(search.toLowerCase()) ||
+                license.software.toLowerCase().includes(search.toLowerCase())
+            );
+            displayExpiredLicenses(filtered);
+        }
+
+        function selectExpiredLicense(license) {
+            selectedExpiredLicense = license;
+            
+            document.querySelectorAll('.expired-license-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+            
+            document.getElementById('selectedLicenseKey').textContent = license.license_key;
+            document.getElementById('extendSection').style.display = 'block';
+        }
+
+        function setExtendDays(days) {
+            document.getElementById('extendDays').value = days;
+        }
+
+        async function extendLicense() {
+            if (!selectedExpiredLicense) {
+                toastr.error('Please select a license first');
+                return;
+            }
+            
+            const days = parseInt(document.getElementById('extendDays').value);
+            
+            if (!days || days <= 0) {
+                toastr.error('Please enter valid number of days');
+                return;
+            }
+            
+            if (!currentUser || currentUser.role !== 'admin') {
+                toastr.error('Only admin can extend licenses');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${LICENSE_API}?action=extend`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: selectedExpiredLicense.id,
+                        extend_days: days
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    toastr.success(`License extended by ${days} days!`);
+                    document.getElementById('extendDays').value = '';
+                    document.getElementById('extendSection').style.display = 'none';
+                    selectedExpiredLicense = null;
+                    loadExpiredLicenses();
+                } else {
+                    toastr.error(result.error || 'Failed to extend license');
+                }
+            } catch (error) {
+                console.error('Extend failed:', error);
+                toastr.error('Failed to extend license');
+            }
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return 'N/A';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('vi-VN');
+        }
+
+        function logout() {
+            fetch(`${AUTH_API}?action=logout`)
+                .then(() => {
+                    window.location.href = 'login.html';
+                })
+                .catch(() => {
+                    window.location.href = 'login.html';
+                });
+        }
+    </script>
+</body>
+</html>

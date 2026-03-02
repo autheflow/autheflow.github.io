@@ -1,0 +1,270 @@
+{
+    "timezones": [
+        {
+            "timezone_id": "UTC-12:00",
+            "timezone_name": "International Date Line West",
+            "utc_offset": "-12:00",
+            "region": "Baker Island, Howland Island",
+            "iana_timezone": "Etc/GMT+12"
+        },
+        {
+            "timezone_id": "UTC-11:00",
+            "timezone_name": "Coordinated Universal Time-11",
+            "utc_offset": "-11:00",
+            "region": "Pago Pago, Alofi",
+            "iana_timezone": "Pacific/Pago_Pago"
+        },
+        {
+            "timezone_id": "UTC-10:00",
+            "timezone_name": "Hawaii-Aleutian Standard Time",
+            "utc_offset": "-10:00",
+            "region": "Honolulu, Rarotonga, Papeete",
+            "iana_timezone": "Pacific/Honolulu"
+        },
+        {
+            "timezone_id": "UTC-09:30",
+            "timezone_name": "Marquesas Islands Time",
+            "utc_offset": "-09:30",
+            "region": "Taiohae",
+            "iana_timezone": "Pacific/Marquesas"
+        },
+        {
+            "timezone_id": "UTC-09:00",
+            "timezone_name": "Alaska Standard Time",
+            "utc_offset": "-09:00",
+            "region": "Anchorage, Juneau",
+            "iana_timezone": "America/Anchorage"
+        },
+        {
+            "timezone_id": "UTC-08:00",
+            "timezone_name": "Pacific Standard Time",
+            "utc_offset": "-08:00",
+            "region": "Los Angeles, Vancouver, Tijuana, Adamstown",
+            "iana_timezone": "America/Los_Angeles"
+        },
+        {
+            "timezone_id": "UTC-07:00",
+            "timezone_name": "Mountain Standard Time",
+            "utc_offset": "-07:00",
+            "region": "Denver, Phoenix, Calgary, Salt Lake City",
+            "iana_timezone": "America/Denver"
+        },
+        {
+            "timezone_id": "UTC-06:00",
+            "timezone_name": "Central Standard Time",
+            "utc_offset": "-06:00",
+            "region": "Chicago, Mexico City, Guatemala City, San Salvador, Tegucigalpa, Managua, Belmopan",
+            "iana_timezone": "America/Chicago"
+        },
+        {
+            "timezone_id": "UTC-05:00",
+            "timezone_name": "Eastern Standard Time",
+            "utc_offset": "-05:00",
+            "region": "New York, Toronto, Lima, Bogota, Havana, Kingston, Panama City, Nassau, Port-au-Prince, Grand Turk",
+            "iana_timezone": "America/New_York"
+        },
+        {
+            "timezone_id": "UTC-04:00",
+            "timezone_name": "Atlantic Standard Time",
+            "utc_offset": "-04:00",
+            "region": "Halifax, Caracas, Santiago, La Paz, Santo Domingo, San Juan, Bridgetown, Port of Spain, Georgetown, Paramaribo, Fort-de-France, Basseterre, Castries, Kingstown, Roseau, St. George's, The Valley, Charlotte Amalie",
+            "iana_timezone": "America/Halifax"
+        },
+        {
+            "timezone_id": "UTC-03:30",
+            "timezone_name": "Newfoundland Standard Time",
+            "utc_offset": "-03:30",
+            "region": "St. John's",
+            "iana_timezone": "America/St_Johns"
+        },
+        {
+            "timezone_id": "UTC-03:00",
+            "timezone_name": "Brasilia Time",
+            "utc_offset": "-03:00",
+            "region": "Brasilia, Buenos Aires, Montevideo, Nuuk, Cayenne, Stanley, Saint-Pierre",
+            "iana_timezone": "America/Sao_Paulo"
+        },
+        {
+            "timezone_id": "UTC-02:00",
+            "timezone_name": "South Georgia Time",
+            "utc_offset": "-02:00",
+            "region": "South Georgia, Fernando de Noronha",
+            "iana_timezone": "Atlantic/South_Georgia"
+        },
+        {
+            "timezone_id": "UTC-01:00",
+            "timezone_name": "Azores Standard Time",
+            "utc_offset": "-01:00",
+            "region": "Ponta Delgada, Praia",
+            "iana_timezone": "Atlantic/Azores"
+        },
+        {
+            "timezone_id": "UTC+00:00",
+            "timezone_name": "Greenwich Mean Time",
+            "utc_offset": "+00:00",
+            "region": "London, Dublin, Lisbon, Reykjavik, Accra, Dakar, Abidjan, Bamako, Conakry, Freetown, Banjul, Bissau, Lomé, Ouagadougou, Monrovia, Nouakchott, São Tomé, Tórshavn",
+            "iana_timezone": "Europe/London"
+        },
+        {
+            "timezone_id": "UTC+01:00",
+            "timezone_name": "Central European Time",
+            "utc_offset": "+01:00",
+            "region": "Paris, Berlin, Rome, Madrid, Lagos, Warsaw, Algiers, Tunis, Casablanca, Kinshasa, Luanda, Brazzaville, Bangui, Yaoundé, Libreville, Niamey, Porto-Novo, Malabo, N'Djamena, Amsterdam, Brussels, Vienna, Zurich, Prague, Budapest, Bucharest, Stockholm, Copenhagen, Oslo",
+            "iana_timezone": "Europe/Paris"
+        },
+        {
+            "timezone_id": "UTC+02:00",
+            "timezone_name": "Eastern European Time",
+            "utc_offset": "+02:00",
+            "region": "Athens, Cairo, Helsinki, Johannesburg, Kyiv, Harare, Tripoli, Windhoek, Lusaka, Maputo, Maseru, Mbabane, Gaborone, Blantyre, Bujumbura, Kigali, Bucharest, Sofia, Riga, Tallinn, Vilnius, Chisinau, Belgrade, Ljubljana, Bratislava, Zagreb, Nicosia, Beirut, Damascus, Jerusalem",
+            "iana_timezone": "Europe/Athens"
+        },
+        {
+            "timezone_id": "UTC+03:00",
+            "timezone_name": "Moscow Standard Time",
+            "utc_offset": "+03:00",
+            "region": "Moscow, Istanbul, Riyadh, Nairobi, Baghdad, Doha, Kuwait City, Manama, Amman, Aden, Addis Ababa, Asmara, Dar es Salaam, Djibouti City, Juba, Kampala, Khartoum, Mogadishu, Antananarivo, Moroni, Mamoudzou, Minsk",
+            "iana_timezone": "Europe/Moscow"
+        },
+        {
+            "timezone_id": "UTC+03:30",
+            "timezone_name": "Iran Standard Time",
+            "utc_offset": "+03:30",
+            "region": "Tehran",
+            "iana_timezone": "Asia/Tehran"
+        },
+        {
+            "timezone_id": "UTC+04:00",
+            "timezone_name": "Gulf Standard Time",
+            "utc_offset": "+04:00",
+            "region": "Dubai, Abu Dhabi, Baku, Yerevan, Muscat, Tbilisi, Port Louis, Victoria",
+            "iana_timezone": "Asia/Dubai"
+        },
+        {
+            "timezone_id": "UTC+04:30",
+            "timezone_name": "Afghanistan Time",
+            "utc_offset": "+04:30",
+            "region": "Kabul",
+            "iana_timezone": "Asia/Kabul"
+        },
+        {
+            "timezone_id": "UTC+05:00",
+            "timezone_name": "Pakistan Standard Time",
+            "utc_offset": "+05:00",
+            "region": "Karachi, Tashkent, Yekaterinburg, Malé, Dushanbe, Ashgabat",
+            "iana_timezone": "Asia/Karachi"
+        },
+        {
+            "timezone_id": "UTC+05:30",
+            "timezone_name": "India Standard Time",
+            "utc_offset": "+05:30",
+            "region": "Mumbai, Delhi, Kolkata, Chennai, Colombo",
+            "iana_timezone": "Asia/Kolkata"
+        },
+        {
+            "timezone_id": "UTC+05:45",
+            "timezone_name": "Nepal Time",
+            "utc_offset": "+05:45",
+            "region": "Kathmandu",
+            "iana_timezone": "Asia/Kathmandu"
+        },
+        {
+            "timezone_id": "UTC+06:00",
+            "timezone_name": "Bangladesh Standard Time",
+            "utc_offset": "+06:00",
+            "region": "Dhaka, Almaty, Novosibirsk, Bishkek, Thimphu",
+            "iana_timezone": "Asia/Dhaka"
+        },
+        {
+            "timezone_id": "UTC+06:30",
+            "timezone_name": "Myanmar Time",
+            "utc_offset": "+06:30",
+            "region": "Yangon, West Island",
+            "iana_timezone": "Asia/Yangon"
+        },
+        {
+            "timezone_id": "UTC+07:00",
+            "timezone_name": "Indochina Time",
+            "utc_offset": "+07:00",
+            "region": "Bangkok, Hanoi, Ho Chi Minh, Jakarta, Phnom Penh, Vientiane, Krasnoyarsk",
+            "iana_timezone": "Asia/Bangkok"
+        },
+        {
+            "timezone_id": "UTC+08:00",
+            "timezone_name": "China Standard Time",
+            "utc_offset": "+08:00",
+            "region": "Beijing, Hong Kong, Singapore, Manila, Kuala Lumpur, Taipei, Perth, Bandar Seri Begawan, Ulaanbaatar, Irkutsk",
+            "iana_timezone": "Asia/Shanghai"
+        },
+        {
+            "timezone_id": "UTC+08:45",
+            "timezone_name": "Australian Central Western Time",
+            "utc_offset": "+08:45",
+            "region": "Eucla",
+            "iana_timezone": "Australia/Eucla"
+        },
+        {
+            "timezone_id": "UTC+09:00",
+            "timezone_name": "Japan Standard Time",
+            "utc_offset": "+09:00",
+            "region": "Tokyo, Seoul, Pyongyang, Dili, Ngerulmud, Yakutsk",
+            "iana_timezone": "Asia/Tokyo"
+        },
+        {
+            "timezone_id": "UTC+09:30",
+            "timezone_name": "Australian Central Standard Time",
+            "utc_offset": "+09:30",
+            "region": "Adelaide, Darwin",
+            "iana_timezone": "Australia/Adelaide"
+        },
+        {
+            "timezone_id": "UTC+10:00",
+            "timezone_name": "Australian Eastern Standard Time",
+            "utc_offset": "+10:00",
+            "region": "Sydney, Melbourne, Brisbane, Port Moresby, Hagåtña, Saipan, Weno, Vladivostok",
+            "iana_timezone": "Australia/Sydney"
+        },
+        {
+            "timezone_id": "UTC+10:30",
+            "timezone_name": "Lord Howe Standard Time",
+            "utc_offset": "+10:30",
+            "region": "Lord Howe Island",
+            "iana_timezone": "Australia/Lord_Howe"
+        },
+        {
+            "timezone_id": "UTC+11:00",
+            "timezone_name": "Solomon Islands Time",
+            "utc_offset": "+11:00",
+            "region": "Honiara, Nouméa, Port Vila, Palikir, Kingston, Magadan",
+            "iana_timezone": "Pacific/Guadalcanal"
+        },
+        {
+            "timezone_id": "UTC+12:00",
+            "timezone_name": "New Zealand Standard Time",
+            "utc_offset": "+12:00",
+            "region": "Auckland, Wellington, Suva, Funafuti, Tarawa, Majuro, Yaren, Mata-Utu, Petropavlovsk-Kamchatsky",
+            "iana_timezone": "Pacific/Auckland"
+        },
+        {
+            "timezone_id": "UTC+12:45",
+            "timezone_name": "Chatham Islands Time",
+            "utc_offset": "+12:45",
+            "region": "Waitangi",
+            "iana_timezone": "Pacific/Chatham"
+        },
+        {
+            "timezone_id": "UTC+13:00",
+            "timezone_name": "Tonga Time",
+            "utc_offset": "+13:00",
+            "region": "Nuku'alofa, Apia, Fakaofo",
+            "iana_timezone": "Pacific/Tongatapu"
+        },
+        {
+            "timezone_id": "UTC+14:00",
+            "timezone_name": "Line Islands Time",
+            "utc_offset": "+14:00",
+            "region": "Kiritimati",
+            "iana_timezone": "Pacific/Kiritimati"
+        }
+    ]
+}

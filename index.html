@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTEX License Manager - Redirecting...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+        }
+        .loader {
+            text-align: center;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(70, 95, 255, 0.2);
+            border-top-color: #465FFF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        h2 {
+            margin: 0;
+            font-weight: 600;
+            color: #465FFF;
+        }
+        p {
+            margin: 10px 0 0;
+            color: #94A3B8;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner"></div>
+        <h2>HTEX License Manager</h2>
+        <p>Redirecting to dashboard...</p>
+    </div>
+    <script>
+        window.location.href = 'dashboard.html';
+    </script>
+</body>
+</html>

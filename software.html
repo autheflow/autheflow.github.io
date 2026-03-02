@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTEX License Manager | Software Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/dark-theme.css">
+    <style>
+        .software-item {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .software-item:hover {
+            border-color: var(--brand-500);
+            box-shadow: 0 8px 24px rgba(70, 95, 255, 0.2);
+            transform: translateY(-4px);
+        }
+        
+        .software-item h5 {
+            color: var(--text-primary);
+            margin: 0;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .software-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(70, 95, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--brand-400);
+            margin-right: 16px;
+        }
+        
+        .navbar-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .navbar-user:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="app-sidebar">
+            <a href="dashboard.html" class="brand-link">
+                <img src="icon.png" alt="HTEX Logo" class="brand-image">
+                <span class="brand-text">HTEX</span>
+            </a>
+            
+            <ul class="sidebar-menu">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="bi bi-speedometer2 nav-icon"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="license-manage.html" class="nav-link">
+                        <i class="bi bi-key-fill nav-icon"></i>
+                        <span>License Management</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="software.html" class="nav-link active">
+                        <i class="bi bi-box-seam nav-icon"></i>
+                        <span>Software</span>
+                    </a>
+                </li>
+                <li class="nav-item" id="usersMenuItem" style="display: none;">
+                    <a href="users.html" class="nav-link">
+                        <i class="bi bi-people-fill nav-icon"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <header class="app-header">
+            <div class="navbar-actions">
+                <div class="dropdown">
+                    <button class="navbar-user dropdown-toggle" data-bs-toggle="dropdown">
+                        <div class="user-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+                        <span id="userName" style="color: var(--text-primary); font-weight: 600;">Admin</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+                        <li><hr class="dropdown-divider" style="border-color: rgba(255,255,255,0.05);"></li>
+                        <li><a class="dropdown-item" href="#" onclick="logout()"><i class="bi bi-box-arrow-right me-2"></i>Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <div class="app-content-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3><i class="bi bi-box-seam me-3"></i>Software Management</h3>
+                    </div>
+                    <div class="col-auto">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                                <li class="breadcrumb-item active">Software</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-content">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createSoftwareModal">
+                            <i class="bi bi-plus-circle me-2"></i>Add New Software
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="bi bi-list-ul"></i>
+                                    Software List
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div id="softwareList">
+                                    <div class="text-center py-4">
+                                        <div class="spinner-border" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal fade" id="createSoftwareModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-plus-circle me-2"></i>Add New Software</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="createSoftwareForm">
+                        <div class="mb-3">
+                            <label class="form-label">Software Name</label>
+                            <input type="text" class="form-control" id="newSoftwareName" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" onclick="createSoftware()">
+                        <i class="bi bi-check-circle me-2"></i>Create
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editSoftwareModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-pencil-square me-2"></i>Edit Software</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editSoftwareForm">
+                        <input type="hidden" id="editSoftwareId">
+                        <div class="mb-3">
+                            <label class="form-label">Software Name</label>
+                            <input type="text" class="form-control" id="editSoftwareName" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="updateSoftware()">
+                        <i class="bi bi-check-circle me-2"></i>Update
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        const SOFTWARE_API = 'api/software.php';
+        const AUTH_API = 'api/auth.php';
+
+        let currentUser = null;
+        let createSoftwareModalInstance, editSoftwareModalInstance;
+
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "timeOut": "3000"
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuth();
+            
+            createSoftwareModalInstance = new bootstrap.Modal(document.getElementById('createSoftwareModal'));
+            editSoftwareModalInstance = new bootstrap.Modal(document.getElementById('editSoftwareModal'));
+        });
+
+        async function checkAuth() {
+            try {
+                const response = await fetch(`${AUTH_API}?action=check`);
+                const result = await response.json();
+                
+                if (!result.success) {
+                    window.location.href = 'login.html?session=expired';
+                    return;
+                }
+                
+                currentUser = result.data;
+                document.getElementById('userName').textContent = currentUser.full_name || currentUser.username;
+                
+                if (currentUser.role === 'admin') {
+                    document.getElementById('usersMenuItem').style.display = 'block';
+                } else {
+                    toastr.error('Access denied - Admin only');
+                    window.location.href = 'dashboard.html';
+                    return;
+                }
+                
+                loadSoftwareList();
+                
+            } catch (error) {
+                console.error('Auth check failed:', error);
+                window.location.href = 'login.html';
+            }
+        }
+
+        async function loadSoftwareList() {
+            try {
+                const response = await fetch(`${SOFTWARE_API}?action=list`);
+                const result = await response.json();
+                
+                const container = document.getElementById('softwareList');
+                
+                if (result.success && result.data.length > 0) {
+                    container.innerHTML = '';
+                    result.data.forEach(software => {
+                        const item = document.createElement('div');
+                        item.className = 'software-item';
+                        item.innerHTML = `
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <div class="software-icon">
+                                        <i class="bi bi-box-seam"></i>
+                                    </div>
+                                    <h5>${software.name}</h5>
+                                </div>
+                                <div>
+                                    <button class="btn btn-info btn-sm me-2" onclick="editSoftware(${software.id})">
+                                        <i class="bi bi-pencil-fill"></i> Edit
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" onclick="deleteSoftware(${software.id}, '${software.name}')">
+                                        <i class="bi bi-trash-fill"></i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(item);
+                    });
+                } else {
+                    container.innerHTML = '<p class="text-center text-muted">No software found</p>';
+                }
+            } catch (error) {
+                console.error('Failed to load software:', error);
+                toastr.error('Failed to load software list');
+            }
+        }
+
+        async function createSoftware() {
+            const name = document.getElementById('newSoftwareName').value.trim();
+            
+            if (!name) {
+                toastr.error('Please enter software name');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${SOFTWARE_API}?action=create`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    toastr.success('Software created successfully!');
+                    createSoftwareModalInstance.hide();
+                    document.getElementById('createSoftwareForm').reset();
+                    loadSoftwareList();
+                } else {
+                    toastr.error(result.error || 'Failed to create software');
+                }
+            } catch (error) {
+                console.error('Create failed:', error);
+                toastr.error('Failed to create software');
+            }
+        }
+
+        async function editSoftware(id) {
+            try {
+                const response = await fetch(`${SOFTWARE_API}?action=get&id=${id}`);
+                const result = await response.json();
+                
+                if (result.success) {
+                    document.getElementById('editSoftwareId').value = result.data.id;
+                    document.getElementById('editSoftwareName').value = result.data.name;
+                    editSoftwareModalInstance.show();
+                }
+            } catch (error) {
+                console.error('Failed to load software:', error);
+                toastr.error('Failed to load software details');
+            }
+        }
+
+        async function updateSoftware() {
+            const id = document.getElementById('editSoftwareId').value;
+            const name = document.getElementById('editSoftwareName').value.trim();
+            
+            if (!name) {
+                toastr.error('Please enter software name');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${SOFTWARE_API}?action=update`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id, name })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    toastr.success('Software updated successfully!');
+                    editSoftwareModalInstance.hide();
+                    loadSoftwareList();
+                } else {
+                    toastr.error(result.error || 'Failed to update software');
+                }
+            } catch (error) {
+                console.error('Update failed:', error);
+                toastr.error('Failed to update software');
+            }
+        }
+
+        async function deleteSoftware(id, name) {
+            if (!confirm(`Are you sure you want to delete: ${name}?`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${SOFTWARE_API}?action=delete&id=${id}`, {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    toastr.success('Software deleted successfully!');
+                    loadSoftwareList();
+                } else {
+                    toastr.error(result.error || 'Failed to delete software');
+                }
+            } catch (error) {
+                console.error('Delete failed:', error);
+                toastr.error('Failed to delete software');
+            }
+        }
+
+        function logout() {
+            fetch(`${AUTH_API}?action=logout`)
+                .then(() => {
+                    window.location.href = 'login.html';
+                })
+                .catch(() => {
+                    window.location.href = 'login.html';
+                });
+        }
+    </script>
+</body>
+</html>

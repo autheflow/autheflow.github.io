@@ -1,0 +1,283 @@
+[
+  {
+    "languageId": "vi_VN",
+    "languageName": "Vietnamese",
+    "lastIP": "vn",
+    "lastZoneArea": "Asia/Ho_Chi_Minh",
+    "lastZoneName": "SE Asia Standard Time"
+  },
+  {
+    "languageId": "id_ID",
+    "languageName": "Indonesian",
+    "lastIP": "id",
+    "lastZoneArea": "Asia/Jakarta",
+    "lastZoneName": "SE Asia Standard Time"
+  },
+  {
+    "languageId": "th_TH",
+    "languageName": "Thai",
+    "lastIP": "th",
+    "lastZoneArea": "Asia/Bangkok",
+    "lastZoneName": "SE Asia Standard Time"
+  },
+  {
+    "languageId": "ms_MY",
+    "languageName": "Malay",
+    "lastIP": "my",
+    "lastZoneArea": "Asia/Kuala_Lumpur",
+    "lastZoneName": "Singapore Standard Time"
+  },
+  {
+    "languageId": "fil_PH",
+    "languageName": "Filipino",
+    "lastIP": "ph",
+    "lastZoneArea": "Asia/Manila",
+    "lastZoneName": "Singapore Standard Time"
+  },
+  {
+    "languageId": "ja_JP",
+    "languageName": "Japanese",
+    "lastIP": "jp",
+    "lastZoneArea": "Asia/Tokyo",
+    "lastZoneName": "Tokyo Standard Time"
+  },
+  {
+    "languageId": "ko_KR",
+    "languageName": "Korean",
+    "lastIP": "kr",
+    "lastZoneArea": "Asia/Seoul",
+    "lastZoneName": "Korea Standard Time"
+  },
+  {
+    "languageId": "zh_CN",
+    "languageName": "Chinese (Simplified)",
+    "lastIP": "cn",
+    "lastZoneArea": "Asia/Shanghai",
+    "lastZoneName": "China Standard Time"
+  },
+  {
+    "languageId": "zh_TW",
+    "languageName": "Chinese (Traditional)",
+    "lastIP": "tw",
+    "lastZoneArea": "Asia/Taipei",
+    "lastZoneName": "Taipei Standard Time"
+  },
+  {
+    "languageId": "zh_HK",
+    "languageName": "Chinese (Hong Kong)",
+    "lastIP": "hk",
+    "lastZoneArea": "Asia/Hong_Kong",
+    "lastZoneName": "China Standard Time"
+  },
+  {
+    "languageId": "hi_IN",
+    "languageName": "Hindi",
+    "lastIP": "in",
+    "lastZoneArea": "Asia/Kolkata",
+    "lastZoneName": "India Standard Time"
+  },
+  {
+    "languageId": "bn_BD",
+    "languageName": "Bengali",
+    "lastIP": "bd",
+    "lastZoneArea": "Asia/Dhaka",
+    "lastZoneName": "Bangladesh Standard Time"
+  },
+  {
+    "languageId": "ur_PK",
+    "languageName": "Urdu",
+    "lastIP": "pk",
+    "lastZoneArea": "Asia/Karachi",
+    "lastZoneName": "Pakistan Standard Time"
+  },
+  {
+    "languageId": "ar_SA",
+    "languageName": "Arabic",
+    "lastIP": "sa",
+    "lastZoneArea": "Asia/Riyadh",
+    "lastZoneName": "Arabian Standard Time"
+  },
+  {
+    "languageId": "he_IL",
+    "languageName": "Hebrew",
+    "lastIP": "il",
+    "lastZoneArea": "Asia/Jerusalem",
+    "lastZoneName": "Israel Standard Time"
+  },
+  {
+    "languageId": "en_GB",
+    "languageName": "English (United Kingdom)",
+    "lastIP": "gb",
+    "lastZoneArea": "Europe/London",
+    "lastZoneName": "GMT Standard Time"
+  },
+  {
+    "languageId": "fr_FR",
+    "languageName": "French",
+    "lastIP": "fr",
+    "lastZoneArea": "Europe/Paris",
+    "lastZoneName": "Romance Standard Time"
+  },
+  {
+    "languageId": "de_DE",
+    "languageName": "German",
+    "lastIP": "de",
+    "lastZoneArea": "Europe/Berlin",
+    "lastZoneName": "W. Europe Standard Time"
+  },
+  {
+    "languageId": "es_ES",
+    "languageName": "Spanish (Spain)",
+    "lastIP": "es",
+    "lastZoneArea": "Europe/Madrid",
+    "lastZoneName": "Romance Standard Time"
+  },
+  {
+    "languageId": "it_IT",
+    "languageName": "Italian",
+    "lastIP": "it",
+    "lastZoneArea": "Europe/Rome",
+    "lastZoneName": "W. Europe Standard Time"
+  },
+  {
+    "languageId": "ru_RU",
+    "languageName": "Russian",
+    "lastIP": "ru",
+    "lastZoneArea": "Europe/Moscow",
+    "lastZoneName": "Russian Standard Time"
+  },
+  {
+    "languageId": "pt_PT",
+    "languageName": "Portuguese (Portugal)",
+    "lastIP": "pt",
+    "lastZoneArea": "Europe/Lisbon",
+    "lastZoneName": "W. Europe Standard Time"
+  },
+  {
+    "languageId": "nl_NL",
+    "languageName": "Dutch",
+    "lastIP": "nl",
+    "lastZoneArea": "Europe/Amsterdam",
+    "lastZoneName": "W. Europe Standard Time"
+  },
+  {
+    "languageId": "pl_PL",
+    "languageName": "Polish",
+    "lastIP": "pl",
+    "lastZoneArea": "Europe/Warsaw",
+    "lastZoneName": "Central European Standard Time"
+  },
+  {
+    "languageId": "sv_SE",
+    "languageName": "Swedish",
+    "lastIP": "se",
+    "lastZoneArea": "Europe/Stockholm",
+    "lastZoneName": "W. Europe Standard Time"
+  },
+  {
+    "languageId": "fi_FI",
+    "languageName": "Finnish",
+    "lastIP": "fi",
+    "lastZoneArea": "Europe/Helsinki",
+    "lastZoneName": "FLE Standard Time"
+  },
+  {
+    "languageId": "cs_CZ",
+    "languageName": "Czech",
+    "lastIP": "cz",
+    "lastZoneArea": "Europe/Prague",
+    "lastZoneName": "Central European Standard Time"
+  },
+
+  {
+    "languageId": "en_US",
+    "languageName": "English (United States)",
+    "lastIP": "us",
+    "lastZoneArea": "America/New_York",
+    "lastZoneName": "Eastern Standard Time"
+  },
+  {
+    "languageId": "es_MX",
+    "languageName": "Spanish (Mexico)",
+    "lastIP": "mx",
+    "lastZoneArea": "America/Mexico_City",
+    "lastZoneName": "Central Standard Time"
+  },
+  {
+    "languageId": "pt_BR",
+    "languageName": "Portuguese (Brazil)",
+    "lastIP": "br",
+    "lastZoneArea": "America/Sao_Paulo",
+    "lastZoneName": "E. South America Standard Time"
+  },
+  {
+    "languageId": "es_AR",
+    "languageName": "Spanish (Argentina)",
+    "lastIP": "ar",
+    "lastZoneArea": "America/Argentina/Buenos_Aires",
+    "lastZoneName": "Argentina Standard Time"
+  },
+  {
+    "languageId": "es_CL",
+    "languageName": "Spanish (Chile)",
+    "lastIP": "cl",
+    "lastZoneArea": "America/Santiago",
+    "lastZoneName": "Pacific SA Standard Time"
+  },
+  {
+    "languageId": "es_CO",
+    "languageName": "Spanish (Colombia)",
+    "lastIP": "co",
+    "lastZoneArea": "America/Bogota",
+    "lastZoneName": "SA Pacific Standard Time"
+  },
+  {
+    "languageId": "fr_CA",
+    "languageName": "French (Canada)",
+    "lastIP": "ca",
+    "lastZoneArea": "America/Montreal",
+    "lastZoneName": "Eastern Standard Time"
+  },
+  {
+    "languageId": "en_CA",
+    "languageName": "English (Canada)",
+    "lastIP": "ca",
+    "lastZoneArea": "America/Toronto",
+    "lastZoneName": "Eastern Standard Time"
+  },
+  {
+    "languageId": "es_PE",
+    "languageName": "Spanish (Peru)",
+    "lastIP": "pe",
+    "lastZoneArea": "America/Lima",
+    "lastZoneName": "SA Pacific Standard Time"
+  },
+  {
+    "languageId": "es_VE",
+    "languageName": "Spanish (Venezuela)",
+    "lastIP": "ve",
+    "lastZoneArea": "America/Caracas",
+    "lastZoneName": "Venezuela Standard Time"
+  },
+  {
+    "languageId": "en_AU",
+    "languageName": "English (Australia)",
+    "lastIP": "au",
+    "lastZoneArea": "Australia/Sydney",
+    "lastZoneName": "AUS Eastern Standard Time"
+  },
+  {
+    "languageId": "es_EC",
+    "languageName": "Spanish (Ecuador)",
+    "lastIP": "ec",
+    "lastZoneArea": "America/Guayaquil",
+    "lastZoneName": "SA Pacific Standard Time"
+  },
+  {
+    "languageId": "pt_PT",
+    "languageName": "Portuguese (Portugal)",
+    "lastIP": "pt",
+    "lastZoneArea": "Europe/Lisbon",
+    "lastZoneName": "W. Europe Standard Time"
+  }
+]

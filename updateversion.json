@@ -1,0 +1,27 @@
+{
+  "app_name": "",
+  "package_name": "",
+  "latest_version": "1.1.2",
+  "build": 1320,
+  "release_date": "2026-02-19",
+  "mandatory": false,
+  "changelog": [
+    "Optimize fingerprint engine",
+    "Improve anti-detection algorithms",
+    "Fix crash on Windows 11",
+    "Enhance proxy handling"
+  ],
+  "download": {
+    "windows": "",
+    "macos": "",
+    "linux": ""
+  },
+  "checksum": {
+    "windows": "",
+    "macos": "",
+    "linux": ""
+  },
+  "min_supported_version": "",
+  "update_url": "",
+  "timestamp": 1708339200
+}

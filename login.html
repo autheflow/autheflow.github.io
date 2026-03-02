@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTEX License Manager | Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="assets/css/dark-theme.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(70, 95, 255, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, -30px) rotate(180deg); }
+        }
+        
+        .login-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 440px;
+        }
+        
+        .login-logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .login-logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 10px 30px rgba(70, 95, 255, 0.3);
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .login-logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
+        }
+        
+        .login-logo p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .login-header {
+            margin-bottom: 32px;
+        }
+        
+        .login-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+        }
+        
+        .login-header p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .input-group {
+            position: relative;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 18px;
+            pointer-events: none;
+        }
+        
+        .form-control {
+            padding-left: 48px;
+            height: 48px;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+            font-size: 18px;
+            transition: color 0.2s ease;
+        }
+        
+        .password-toggle:hover {
+            color: var(--text-primary);
+        }
+        
+        .btn-login {
+            width: 100%;
+            height: 48px;
+            background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(70, 95, 255, 0.3);
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(70, 95, 255, 0.4);
+        }
+        
+        .btn-login:active {
+            transform: translateY(0);
+        }
+        
+        .login-footer {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 28px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo">
+            <img src="icon.png" alt="HTEX Logo">
+            <h1>HTEX</h1>
+            <p>License Management System</p>
+        </div>
+        
+        <div class="login-card">
+            <div class="login-header">
+                <h2>Welcome back</h2>
+                <p>Please enter your credentials to continue</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <div class="input-group">
+                        <i class="bi bi-person-fill input-icon"></i>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="username" 
+                            placeholder="Enter your username"
+                            required
+                            autocomplete="username"
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <div class="input-group">
+                        <i class="bi bi-lock-fill input-icon"></i>
+                        <input 
+                            type="password" 
+                            class="form-control" 
+                            id="password" 
+                            placeholder="Enter your password"
+                            required
+                            autocomplete="current-password"
+                        >
+                        <button type="button" class="password-toggle" onclick="togglePassword()">
+                            <i class="bi bi-eye" id="toggleIcon"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-login">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>
+                    Sign In
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                &copy; 2024 HTEX Technology. All rights reserved.
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000"
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('session') === 'expired') {
+            toastr.warning('Your session has expired. Please login again.');
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                toastr.error('Please enter both username and password');
+                return;
+            }
+            
+            try {
+                const response = await fetch('api/auth.php?action=login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    toastr.success('Login successful! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 800);
+                } else {
+                    toastr.error(result.error || 'Invalid credentials');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                toastr.error('Connection error. Please try again.');
+            }
+        });
+
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.className = 'bi bi-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.className = 'bi bi-eye';
+            }
+        }
+    </script>
+</body>
+</html>

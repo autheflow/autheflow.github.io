@@ -1,0 +1,20 @@
+{
+    "notifications": {
+        "description1": "Welcome to AutheFlow+.Cảm ơn bạn đã tin dùng sản phẩm của HTEXNOLOGY Chúc bạn 1 ngày làm việc vui vẻ",
+        "description2": "AutheFlow Authentic Everything · Flow Everywhere Xác thực mọi thứ vận hành ở khắp mọi nơi",
+        "description3": "Ngày Hôm nay của bạn thế nào mọi thứ vẫn ổn chứ , Dù sao thì hãy giữ gìn sức khỏe nhé , sau lưng bạn vẫn có người lo lắng !",
+        "description4": ""
+    },
+    "version": {
+        "current": {
+            "version": "1.0.2",
+            "release_date": "2026-02-20",
+            "changelog": "Phiên bản đầu tiên"
+        },
+        "upcoming": {
+            "version": "1.1.03",
+            "expected_date": "2026-03-15",
+            "features": "Update Automation"
+        }
+    }
+}
